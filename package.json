@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "This Shahan's persoanl blog which name is Shahan's Diary.",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build && next export",
+    "serv": "serve out"
+  },
+  "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
+    "moment": "^2.24.0",
+    "next": "^9.3.4",
+    "node-fetch": "^2.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-render-html": "^0.6.0",
+    "sass": "^1.26.3",
+    "serve": "^11.3.0"
+  }
+}

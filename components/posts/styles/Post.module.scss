@@ -1,0 +1,19 @@
+.box {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border: 1px solid #dedede;
+  margin-bottom: 3rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &Content {
+    padding-left: 2rem;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

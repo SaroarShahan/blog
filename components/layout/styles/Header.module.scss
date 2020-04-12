@@ -1,0 +1,43 @@
+.header {
+  border-top: 0.5rem solid #da4453;
+  border-bottom: 1px solid #dedede;
+}
+
+.headerInner {
+  display: grid;
+  grid-template-columns: 20.5rem 1fr;
+  grid-column-gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  &Title {
+    margin-bottom: 0;
+    font-size: 2.5rem;
+  }
+  a {
+    color: #1e1e1e;
+    &:hover {
+      color: initial;
+    }
+  }
+}
+
+.mainNav {
+  ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+  li {
+    margin-left: 2rem;
+    &:nth-child(1) {
+      margin-left: 0;
+    }
+  }
+  a {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+}

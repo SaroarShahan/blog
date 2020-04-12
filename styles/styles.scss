@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  box-sizing: inherit;
+  background-color: #fff;
+  color: #5e5e5e;
+  line-height: 1.6;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 30px;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #9e9e9e;
+  transition: all 0.3s ease-in-out 0s;
+
+  &:hover {
+    color: #da4453;
+  }
+}
+
+img {
+  max-width: 100%;
+}
