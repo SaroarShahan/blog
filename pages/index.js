@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import dynamic from "next/dynamic";
 import Post from "../components/posts/Post";
+import { baseUrl } from "../utlis/baseUrl";
 const BlogLayout = dynamic(() => import("../components/layout/BlogLayout"), {
   ssr: false,
 });
@@ -14,9 +15,7 @@ const Home = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-  const response = await fetch(
-    "http://shahansdiary.com/wp-json/wp/v2/posts?_embed"
-  );
+  const response = await fetch(`${baseUrl}/posts`);
   const posts = await response.json();
 
   return {

@@ -6,10 +6,10 @@ const Post = ({ post }) => {
   console.log("post", post);
   return (
     <div className={styles.box}>
-      {post._embedded["wp:featuredmedia"] && (
+      {post.better_featured_image.source_url && (
         <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
           <a>
-            <img src={post._embedded["wp:featuredmedia"]["0"].source_url} />
+            <img src={post.better_featured_image.source_url} />
           </a>
         </Link>
       )}
