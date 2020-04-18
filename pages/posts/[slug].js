@@ -1,5 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import dynamic from "next/dynamic";
+import moment from "moment";
 import renderHTML from "react-render-html";
 import { baseUrl } from "../../utlis/baseUrl";
 const BlogLayout = dynamic(() => import("../../components/layout/BlogLayout"), {
@@ -16,6 +17,12 @@ const SinglePost = ({ post }) => {
       )}
       <div>
         <h1>{post.title.rendered && post.title.rendered}</h1>
+        <p>
+          <span>{moment(post.date).format("MMMM DD, YYYY")}</span>
+          {/* <Link href="/about">
+            <a>{post._embedded.author["0"].name}</a>
+          </Link> */}
+        </p>
         {renderHTML(post.content.rendered)}
       </div>
     </div>

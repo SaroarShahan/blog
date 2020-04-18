@@ -1,8 +1,9 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 30rem;
   padding-top: 6rem;
   padding-bottom: 6rem;
+  min-height: calc(100vh - 136px);
 }
 
 .main {

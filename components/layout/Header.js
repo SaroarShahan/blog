@@ -18,10 +18,10 @@ const Header = () => {
             <ul>
               <li>
                 <Link href="/">
-                  <a>হোম</a>
+                  <a>Home</a>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/about">
                   <a>সম্পর্কে</a>
                 </Link>
@@ -30,7 +30,7 @@ const Header = () => {
                 <Link href="/contact">
                   <a>যোগাযোগ</a>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
