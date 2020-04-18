@@ -1,0 +1,35 @@
+.list {
+  li {
+    margin-bottom: 2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.boxList {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 1.5rem;
+
+  &__featured {
+    display: block;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+    font-size: 1.8rem;
+  }
+
+  &__link {
+    color: #1e1e1e;
+    &:hover {
+      color: #007bff;
+    }
+  }
+}

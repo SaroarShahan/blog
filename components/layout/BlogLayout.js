@@ -6,7 +6,7 @@ const BlogLayout = ({ children }) => {
   return (
     <Container>
       <div className={styles.wrapper}>
-        <main className={styles.main}>{children}</main>
+        <main className={styles.wrapper__inner}>{children}</main>
         <Sidebar />
       </div>
     </Container>

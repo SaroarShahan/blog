@@ -1,35 +1,52 @@
+import { useContext, useEffect } from "react";
+import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 import dynamic from "next/dynamic";
 import moment from "moment";
 import renderHTML from "react-render-html";
+import styles from "./../styles/PostDetails.module.scss";
 import { baseUrl } from "../../utlis/baseUrl";
+import { CreateContext } from "../../provider/SiteProvider";
 const BlogLayout = dynamic(() => import("../../components/layout/BlogLayout"), {
   ssr: false,
 });
 
-const SinglePost = ({ post }) => {
+const SinglePost = ({ post, recentPosts }) => {
+  const { getRecentPosts } = useContext(CreateContext);
+
+  useEffect(() => {
+    getRecentPosts(recentPosts);
+  }, []);
+
   return (
-    <div>
-      {post.better_featured_image.source_url && (
-        <div>
-          <img src={post.better_featured_image.source_url} />
-        </div>
-      )}
-      <div>
-        <h1>{post.title.rendered && post.title.rendered}</h1>
-        <p>
-          <span>{moment(post.date).format("MMMM DD, YYYY")}</span>
-          {/* <Link href="/about">
+    <>
+      <Head>
+        <title>{post.title.rendered} || শাহানের ডায়েরি</title>
+      </Head>
+      <div className={styles.box}>
+        {post.better_featured_image && (
+          <div className={styles.box__featured}>
+            <img src={post.better_featured_image.source_url} />
+          </div>
+        )}
+        <div className={styles.box__content}>
+          <h1 className={styles.box__title}>
+            {post.title.rendered && post.title.rendered}
+          </h1>
+          <p>
+            <span>{moment(post.date).format("MMMM DD, YYYY")}</span>
+            {/* <Link href="/about">
             <a>{post._embedded.author["0"].name}</a>
           </Link> */}
-        </p>
-        {renderHTML(post.content.rendered)}
+          </p>
+          {renderHTML(post.content.rendered)}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths(ctx) {
   const res = await fetch(`${baseUrl}/posts`);
   const posts = await res.json();
   const paths = posts.map((post) => ({
@@ -42,10 +59,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const response = await fetch(`${baseUrl}/posts?slug=${params.slug}`);
   const post = await response.json();
+  const recentRes = await fetch(`${baseUrl}/posts?per_page=5`);
+  const recentPosts = await recentRes.json();
 
   return {
     props: {
       post: post["0"],
+      recentPosts,
     },
   };
 }

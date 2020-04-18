@@ -1,11 +1,24 @@
 .wrapper {
+  $root: &;
   display: grid;
   grid-template-columns: 1fr 30rem;
   padding-top: 6rem;
   padding-bottom: 6rem;
   min-height: calc(100vh - 136px);
-}
 
-.main {
-  padding-right: 30px;
+  &__inner {
+    padding-right: 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr 20rem;
+  }
+
+  @media screen and (max-width: 589px) {
+    grid-template-columns: 1fr;
+
+    &__inner {
+      padding-right: 0;
+    }
+  }
 }

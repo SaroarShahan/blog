@@ -12,11 +12,15 @@ const SiteProvider = ({ children }) => {
   };
 
   const getRecentPosts = (recent) => {
-    recentPosts(recent);
+    setRecentPosts(recent);
   };
 
   const getUsers = (users) => {
     setUsers(users);
+  };
+
+  const getSearch = (txt) => {
+    setSearchInput(txt);
   };
 
   return (

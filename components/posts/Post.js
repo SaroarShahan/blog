@@ -7,7 +7,7 @@ const Post = ({ post }) => {
   console.log("post", post);
   return (
     <div className={styles.box}>
-      {post.better_featured_image.source_url && (
+      {post.better_featured_image && (
         <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
           <a className={styles.box__featured}>
             <img src={post.better_featured_image.source_url} />

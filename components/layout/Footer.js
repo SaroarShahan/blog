@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <Container>
-        {" "}
-        &copy; {new Date().getFullYear()} All Rights Reserved by{" "}
+        &copy;
+        {` ${new Date().getFullYear()}. All Rights Reserved by `}
         <Link href="/">
           <a>শাহানের ডায়েরি</a>
         </Link>
