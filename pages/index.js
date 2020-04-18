@@ -18,16 +18,18 @@ const Home = ({ posts }) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Head>
         <title>হোম || শাহানের ডায়েরি</title>
       </Head>
       {posts.length > 0 ? (
         posts.map((post) => <Post key={post.id} post={post} />)
       ) : (
-        <p>লেখা আসছে!!!</p>
+        <div style={{ marginBottom: "3rem" }}>
+          <p>লেখা আসছে!!!</p>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
